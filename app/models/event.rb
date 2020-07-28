@@ -8,5 +8,5 @@ class Event < ApplicationRecord
   validates :date, presence: true
 
   has_many :attendees, through: :attendance
-  belongs_to :user
+  belongs_to :creator, class_name: 'User'
 end

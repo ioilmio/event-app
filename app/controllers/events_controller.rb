@@ -9,10 +9,12 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @past_events = Event.previous_events
+    @upcoming_events = Event.upcoming_events
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
     @event.save
   end
 
