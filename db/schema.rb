@@ -10,39 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_27_211047) do
-
-  create_table "attendances", force: :cascade do |t|
-    t.integer "event_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["event_id"], name: "index_attendances_on_event_id"
-    t.index ["user_id"], name: "index_attendances_on_user_id"
+ActiveRecord::Schema.define(version: 20_200_727_205_901) do
+  create_table 'attendances', force: :cascade do |t|
+    t.integer 'event_id'
+    t.integer 'user_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['event_id'], name: 'index_attendances_on_event_id'
+    t.index ['user_id'], name: 'index_attendances_on_user_id'
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.string "attended_by"
-    t.string "created_by"
-    t.datetime "date"
-    t.integer "creator_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "location"
-    t.index ["creator_id"], name: "index_events_on_creator_id"
+  create_table 'events', force: :cascade do |t|
+    t.string 'title'
+    t.string 'description'
+    t.datetime 'date'
+    t.string 'location'
+    t.integer 'creator_id'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['creator_id'], name: 'index_events_on_creator_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "created_events"
-    t.string "attended_events"
-    t.boolean "events_creator"
-    t.string "received_events_invitations"
-    t.string "sent_events_invitations"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'password_digest'
+    t.string 'remember_token'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
-
 end

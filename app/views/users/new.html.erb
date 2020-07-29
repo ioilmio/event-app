@@ -1,2 +1,16 @@
-<h1>new user</h1>
-<%=link_to 'home',root_path%>
+<h1>Sign up</h1>
+<%= form_with model: @users, action: 'create', method: :post do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name%>
+
+    <%=f.label :email%>
+    <%=f.text_field :email%>
+
+    <%=f.label :password%>
+    <%=f.text_field :password%>
+
+    <%=f.label :password_confirmation%>
+    <%=f.text_field :password_confirmation%>
+
+    <%= f.submit 'create'%>
+<%end%>
