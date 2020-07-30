@@ -1,7 +1,7 @@
 <%= alert %>
 <h1>Login</h1>
-<%=form_for User.new, url: session_create_path, method: :post do |f|%>
-    <%= f.label :name%>
+<%=form_for(@session), url: session_create_path, method: :post do |f|%>
+    <%=f.label :name%>
     <%=f.text_field :name%>
     
     <%=f.label :password%>

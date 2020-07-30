@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+  before_action :authorize, only: [:new]
   def index
     @events = Event.all
   end

@@ -1,11 +1,11 @@
 <%= alert %>
 <h1>Login</h1>
-<%=form_for User.new, url: session_create_path, method: :post do |f|%>
-    <%= f.label :name%>
-    <%=f.text_field :name%>
+<%= form_for :login do |f| %>
+    <%= f.label :email%>
+    <%=f.text_field :email%>
     
     <%=f.label :password%>
     <%=f.password_field :password%>
     
-    <%=f.submit%>
+    <%=f.submit 'Log in'%>
 <%end%>

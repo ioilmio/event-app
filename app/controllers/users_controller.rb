@@ -12,11 +12,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params[:user])
+    @user = User.new(user_params)
+    @user.email.downcase!
     if @user.save
-      redirect_to root_path, notice: 'User was successfully created'
+      flash[:notice] = 'User was successfully created'
+      redirect_to root_path
     else
-      render users_new_path, notice: 'Unable to create user'
+      flash.now.alert = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
+      render :new
     end
   end
 
@@ -30,7 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    # byebug
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end

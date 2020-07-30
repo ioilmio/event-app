@@ -2,19 +2,19 @@ class SessionController < ApplicationController
   def new; end
 
   def create
-    @user = User.find_by(params[:email])
-    if @user&.authenticate(params[:email][:password])
-      session[:user_id] = @user.id
-      cookie.permanent[:remember_token] = @user.remember_token
-      redirect_to root_path
+    user = User.find_by(email: params[:login][:email].downcase)
+
+    if user&.authenticate(params[:login][:password])
+      session[:user_id] = user.id.to_s
+      redirect_to root_path, notice: 'Successfully logged in!'
     else
-      flash.now[:alert] = 'Email or password not valid'
-      redirect_to session_new_path
+      flash.now.alert = 'Incorrect email or password, try again.'
+      render :new
     end
   end
 
   def destroy
-    session[:user_id] = nil
-    redirect_to root_url, notice: 'Logged out'
+    session.delete(:user_id)
+    redirect_to login_path, notice: 'Logged out!'
   end
 end
