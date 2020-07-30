@@ -4,7 +4,6 @@ class Event < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :time, presence: true
   validates :date, presence: true
 
   has_many :attendees, through: :attendance

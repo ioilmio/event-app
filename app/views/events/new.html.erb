@@ -1,7 +1,7 @@
 Create a new event
 
 
-<%= form_for(@events) do |f| %>
+<%= form_for Event.new do |f| %>
   <%= f.label :title%>
   <%= f.text_field :title %>
 
@@ -11,5 +11,8 @@ Create a new event
   <%= f.label :date%>
   <%= f.date_field :date%>
 
-  <%= f.button :submit %>
+  <%= f.label :location%>
+  <%= f.text_field :location%>
+
+  <%= f.submit %>
 <% end %>

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionHelper
-  helper_method :current_user
+  helper_method :current_user, :authorize
 
   def current_user
     if session[:user_id]

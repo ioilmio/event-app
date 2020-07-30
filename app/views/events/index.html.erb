@@ -1,6 +1,10 @@
 <h1>Events#index</h1>
 <p>Find me in app/views/events/index.html.erb</p>
+
+test
+<%if current_user%>
+<%= link_to 'create event' , events_new_path%>
+<%else%>
 <%=link_to 'login', login_path%>
-
 <%=link_to 'signup', new_user_path%>
-
+<%end%>
