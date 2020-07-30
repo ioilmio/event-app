@@ -8,9 +8,9 @@ RSpec.describe 'Sessions', type: :request do
     end
   end
 
-  describe 'GET /create' do
+  describe 'POST /create' do
     it 'returns http success' do
-      get '/session/create'
+      post '/session/create'
       expect(response).to have_http_status(:success)
     end
   end

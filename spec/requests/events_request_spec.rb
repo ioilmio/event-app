@@ -15,9 +15,15 @@ RSpec.describe 'Events', type: :request do
     end
   end
 
-  describe 'GET /create' do
+  describe 'GET /new' do
     it 'returns http success' do
-      get '/events/create'
+      get '/events/new'
+      expect(response).to have_http_status(:success)
+    end
+  end
+  describe 'POST /create' do
+    it 'returns http success' do
+      post '/events/create'
       expect(response).to have_http_status(:success)
     end
   end
