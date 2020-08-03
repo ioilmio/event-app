@@ -1,2 +1,9 @@
-<h1>Details for <%=@event.name%> </h1>
-<%=link_to 'events', events_index_path %>
+<h1>Details for <%=@event.title%> </h1>
+
+<%=@event.description%>
+<%=@event.date%>
+<h4>created by</h4>
+<%= @event.creator.name %>
+<hr>
+<%= @event.title%>
+<%=link_to 'HOME', root_path %>

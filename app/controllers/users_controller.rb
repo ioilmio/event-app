@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order_by('DESC')
+    @users = User.all.order('DESC')
     @user = User.find(params[:id])
-    @created_events = current_user.events
-    @past_events = current_user.attended_events.previous
-    @upcoming_events = current_user.attended_events.upcoming
+    @created_events = @user.events
+    @past_events = @user.attended_events.previous
+    @upcoming_events = @user.attended_events.upcoming
   end
 
   def new
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       flash[:notice] = 'User was successfully created'
       redirect_to root_path
     else
-      flash.now.alert = "Oops, couldn't create account. Please make sure you are using a valid email and password and try again."
+      flash.now.alert = "Oops, couldn't create account. Please make sure you are using a valid email and password"
       render :new
     end
   end
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @created_events = current_user.events
-    @past_events = current_user.attended_events.previous
-    @upcoming_events = current_user.attended_events.upcoming
+    @past_events = @user.events.past
+    @upcoming_events = @user.events.upcoming
   end
 
   private

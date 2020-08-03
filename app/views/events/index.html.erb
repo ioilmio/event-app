@@ -1,18 +1,39 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
-
-<% @events.each do |event|%>
-    <h4>title</h4>
-    <p><%=event.title %></p>
-    <h4>description</h4>
-    <p><%=event.description %></p>
-    <h4>location</h4>
-    <p><%= event.location%></p>
-<%end%>
-
 <%if current_user%>
 <%= link_to 'create event' , events_new_path%>
 <%else%>
 <%=link_to 'login', login_path%>
 <%=link_to 'signup', new_user_path%>
 <%end%>
+
+<hr>
+<h4>Upcoming Event</h4>
+<% @events.upcoming.each do |event|%>
+  <%=link_to "#{event.title}", events_show_path(event.id)%>
+    <h4>What</h4>
+    <p><%=event.description %></p>
+    <h4>Where</h4>
+    <p><%= event.location%></p>
+    <h4>when</h4>
+    <p><%= event.date%></p>
+    <h4>created by</h4>
+    <p><%=link_to event.creator.name, users_show_path(event.creator.id)%> </p>
+    <hr>
+<hr>
+<%end%>
+
+
+<h2>Previous event</h2>
+<% @events.past.each do |event|%>
+  <%=link_to "#{event.title}", events_show_path(event.id)%>
+    <h4>What</h4>
+    <p><%=event.description %></p>
+    <h4>Where</h4>
+    <p><%= event.location%></p>
+    <h4>when</h4>
+    <p><%= event.date%></p>
+    <h4>created by</h4>
+    <p><%=link_to event.creator.name %> </p>
+    <hr>
+<hr>
+<%end%>
+

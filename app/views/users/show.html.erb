@@ -1,1 +1,16 @@
 <h1>Detail for <%= @user.name %></h1>
+<% @created_events.each do |event| %>
+    <% if event.date > Time.now%>
+        <h4> <%= event.title %></h4>
+        <p> <%= event.description %>
+        <p> <%= event.location %>
+        <p> <%= event.date %>
+        <%else%>
+        <h4> <%= event.title %></h4>
+        <p> <%= event.description %>
+        <p> <%= event.location %>
+        <p> <%= event.date %>
+
+    <hr>
+    <%end%>
+<%end%>
