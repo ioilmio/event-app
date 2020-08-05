@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'rspec/rails'
+require 'capybara/rspec'
 
 RSpec.describe Event, type: :model do
   subject do
