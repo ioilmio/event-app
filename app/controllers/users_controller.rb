@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all.order('DESC')
-    @user = User.find(params[:id])
-    @created_events = @user.events
-    @past_events = @user.attended_events.previous
-    @upcoming_events = @user.attended_events.upcoming
+    @users = User.all
   end
 
   def new

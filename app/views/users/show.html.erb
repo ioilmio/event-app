@@ -1,16 +1,28 @@
 <h1>Detail for <%= @user.name %></h1>
 <% @created_events.each do |event| %>
-    <% if event.date > Time.now%>
-        <h4> <%= event.title %></h4>
+    <% if event.date < Time.now%>
+    <hr>
+        previous
+    <hr>
+        <h4> <%= link_to event.title, events_show_path(event) %></h4>
         <p> <%= event.description %>
         <p> <%= event.location %>
         <p> <%= event.date %>
         <%else%>
-        <h4> <%= event.title %></h4>
+        <hr>
+    upcoming
+        <hr>
+        <h4> <%= link_to event.title, events_show_path(event) %></h4>
         <p> <%= event.description %>
         <p> <%= event.location %>
         <p> <%= event.date %>
 
-    <hr>
     <%end%>
+    <hr>
+    <%# <%@created_events.each do |a|%>
+
+    <%=@user.attendances%>
+    <%=@past_events%>
+    <%=@upcoming_events%>
+    <%# <%end%>
 <%end%>

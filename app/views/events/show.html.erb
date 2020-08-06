@@ -1,9 +1,10 @@
 <h1>Details for <%=@event.title%> </h1>
 
-<%=@event.description%>
-<%=@event.date%>
+<p>What: <%=@event.description%></p>
+<p>When: <%=@event.date%></p>
 <h4>created by</h4>
-<%= @event.creator.name %>
+<%=link_to @event.creator.name,  users_show_path(@event.creator.id)%>
 <hr>
-<%= @event.title%>
+<%= @event.attendances%>
+<hr>
 <%=link_to 'HOME', root_path %>
