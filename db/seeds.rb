@@ -5,3 +5,33 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+20.times do |n|
+  user = "friend-#{n}"
+  mail = "#{user}@mail.com"
+  password = 'password'
+  password_confirmation = 'password'
+  User.create!(name: user, email: mail, password: password, password_confirmation: password_confirmation)
+end
+
+20.times do |n|
+  title = "event-#{n}"
+  description = "event-#{n}"
+  location = "event-#{n}-location"
+  date = DateTime.now - (rand * 30)
+  creator_id = rand(1..19)
+  Event.create!(title: title, description: description, location: location, creator_id: creator_id, date: date)
+end
+20.times do |n|
+  title = "event-#{n + 20}"
+  description = "event-#{n + 20}"
+  location = "event-#{n + 20}-location"
+  date = DateTime.now + (rand * 30)
+  creator_id = rand(1..19)
+  Event.create!(title: title, description: description, location: location, creator_id: creator_id, date: date)
+end
+
+20.times do |_n|
+  event_id = rand(1..19)
+  user_id = rand(1..19)
+  Attendance.create!(event_id: event_id, user_id: user_id)
+end
