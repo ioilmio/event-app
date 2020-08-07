@@ -7,8 +7,8 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validates :location, presence: true
 
-  belongs_to :creator, class_name: 'User'
+  belongs_to :creator, foreign_key: :user_id, class_name: 'User'
 
-  has_many :attendances, foreign_key: :event_id, source: :event
-  has_many :attendees, through: :attendance, class_name: 'User', source: :attendee
+  has_many :attendances, foreign_key: :attended_event_id, source: :event
+  has_many :attendees, through: :attendances, class_name: 'User', source: :attendee
 end

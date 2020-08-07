@@ -16,7 +16,7 @@
     <h4>when</h4>
     <p><%= event.date%></p>
     <h4>created by</h4>
-    <p><%=link_to event.creator.name, users_show_path(event.creator.id)%> </p>
+    <p><%=link_to event.creator_id, users_show_path(event.creator_id)%> </p>
     <hr>
 <hr>
 <%end%>
@@ -32,7 +32,7 @@
     <h4>when</h4>
     <p><%= event.date%></p>
     <h4>created by</h4>
-    <p><%=link_to event.creator.name %> </p>
+    <p><%=link_to event.creator_id %> </p>
     <hr>
 <hr>
 <%end%>

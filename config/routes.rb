@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'attendance/new'
-  get 'attendance/create'
-  get 'attendance/destroy'
+
   root to: 'events#index'
 
   get '/login', to: 'session#new'
@@ -17,6 +15,10 @@ Rails.application.routes.draw do
   get 'users/show/:id', to: 'users#show', as: :users_show
   get 'users', to: 'users#index', as: :users_list
   post 'users', to: 'users#create'
+
+  get 'attendances/new', to: 'attendances#new', as: :new_attendance
+  post 'attendances/', to: 'attendances#create'
+  post 'attendances/destroy', to: 'attendances#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

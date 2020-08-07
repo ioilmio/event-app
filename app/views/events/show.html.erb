@@ -3,8 +3,9 @@
 <p>What: <%=@event.description%></p>
 <p>When: <%=@event.date%></p>
 <h4>created by</h4>
-<%=link_to @event.creator.name,  users_show_path(@event.creator.id)%>
+<%=link_to @user.name,  users_show_path(@user.id)%>
 <hr>
-<%= @event.attendances%>
+<%= @event.attendees%>
+<%= render 'attendance/new'%>
 <hr>
 <%=link_to 'HOME', root_path %>
