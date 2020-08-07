@@ -2,7 +2,7 @@
 <% @created_events.each do |event| %>
     <% if event.date < Time.now%>
     <hr>
-        previous
+        <h4>previous</h4>
     <hr>
         <h4> <%= link_to event.title, events_show_path(event) %></h4>
         <p> <%= event.description %>
@@ -10,7 +10,7 @@
         <p> <%= event.date %>
         <%else%>
         <hr>
-    upcoming
+    <h4>upcoming    </h4>
         <hr>
         <h4> <%= link_to event.title, events_show_path(event) %></h4>
         <p> <%= event.description %>
@@ -19,10 +19,7 @@
 
     <%end%>
     <hr>
-    <%# <%@created_events.each do |a|%>
+    <%=link_to 'Home', root_path%>
+    <hr>
 
-    <%=@user.attendances%>
-    <%=@past_events%>
-    <%=@upcoming_events%>
-    <%# <%end%>
 <%end%>
