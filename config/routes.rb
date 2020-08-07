@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'attendance/new'
+  get 'attendance/create'
+  get 'attendance/destroy'
   root to: 'events#index'
 
   get '/login', to: 'session#new'
