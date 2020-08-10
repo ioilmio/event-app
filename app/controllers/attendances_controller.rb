@@ -12,7 +12,7 @@ class AttendancesController < ApplicationController
       redirect_to root_path
     else
       flash.now[:alert] = 'There was an error'
-      render :new
+      # render :new
     end
   end
 
