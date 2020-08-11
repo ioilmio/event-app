@@ -4,7 +4,6 @@ class EventsController < ApplicationController
     @events = Event.all
     @past_events = Event.past
     @upcoming_events = Event.upcoming
-    # @user = User.find(@event.creator_id)
   end
 
   def show
