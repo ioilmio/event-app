@@ -1,0 +1,13 @@
+<h1>Details for <%=@event.title%> </h1>
+
+<p>What: <%=@event.description%></p>
+<p>When: <%=@event.date%></p>
+<h4>created by</h4>
+<%=link_to @user.name,  users_show_path(@user.id)%>
+<hr>
+<% @event.attendees.each do |user|%>
+    <%= user.name%>
+<%end%>
+<%= render 'attendance/new'%>
+<hr>
+<%=link_to 'HOME', root_path %>

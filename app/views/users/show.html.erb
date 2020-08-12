@@ -1,0 +1,25 @@
+<h1>Detail for <%= @user.name %></h1>
+<% @created_events.each do |event| %>
+    <% if event.date < Time.now%>
+    <hr>
+        <h4>previous</h4>
+    <hr>
+        <h4> <%= link_to event.title, events_show_path(event) %></h4>
+        <p> <%= event.description %>
+        <p> <%= event.location %>
+        <p> <%= event.date %>
+        <%else%>
+        <hr>
+    <h4>upcoming    </h4>
+        <hr>
+        <h4> <%= link_to event.title, events_show_path(event) %></h4>
+        <p> <%= event.description %>
+        <p> <%= event.location %>
+        <p> <%= event.date %>
+
+    <%end%>
+    <hr>
+    <%=link_to 'Home', root_path%>
+    <hr>
+
+<%end%>

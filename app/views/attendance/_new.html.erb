@@ -1,0 +1,6 @@
+
+<%= form_for Attendance.new do |f| %>
+    <%= f.hidden_field :attendee_id,value: current_user.id%>
+    <%= f.hidden_field :attended_event_id, value: @event.id%>
+  <%= f.submit 'I will attend'%>
+<% end %>
